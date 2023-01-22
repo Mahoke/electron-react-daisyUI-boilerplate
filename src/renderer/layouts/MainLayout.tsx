@@ -18,6 +18,7 @@ export default function MainLayout() {
           id="my-drawer"
           type="checkbox"
           className="drawer-toggle"
+          readOnly
           checked={drawerOpen}
         />
 
