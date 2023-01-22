@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import ThemeToggle from './ThemeToggle';
 
 type DrawerProps = {
   drawerOpen: boolean;
@@ -20,7 +21,7 @@ export default function Drawer({ drawerOpen, setDrawerOpen }: DrawerProps) {
         className="drawer-overlay"
         onClick={() => setDrawerOpen(!drawerOpen)}
       />
-      <ul className="p-4 menu w-80 bg-base-100 text-base-content">
+      <ul className="w-40 menu bg-base-100 text-base-content">
         <li>
           <button
             type="button"
@@ -38,6 +39,9 @@ export default function Drawer({ drawerOpen, setDrawerOpen }: DrawerProps) {
           >
             About
           </button>
+        </li>
+        <li>
+          <ThemeToggle />
         </li>
       </ul>
     </div>

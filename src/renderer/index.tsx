@@ -2,8 +2,12 @@ import { createRoot } from 'react-dom/client';
 import App from './App';
 
 const container = document.getElementById('root')!;
-document.documentElement.setAttribute('data-theme', 'dark');
+document.documentElement.setAttribute(
+  'data-theme',
+  localStorage.getItem('them') ?? 'light'
+);
 const root = createRoot(container);
+
 root.render(<App />);
 
 // calling IPC exposed from preload script

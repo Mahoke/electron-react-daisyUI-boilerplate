@@ -1,15 +1,15 @@
 import { Dispatch, SetStateAction, createContext, useContext } from 'react';
 
-export type ThemeType = 'light' | 'dark';
-
 export interface ThemeContextProps {
-  theme: ThemeType;
-  setCurrentTheme: Dispatch<SetStateAction<ThemeType>> | null;
+  currentTheme: string;
+  setCurrentTheme: Dispatch<SetStateAction<string>>;
 }
 
-export const ThemeContext = createContext<ThemeContextProps>({
-  theme: 'light',
-  setCurrentTheme: null,
-});
+export const defaultState: ThemeContextProps = {
+  currentTheme: localStorage.getItem('theme') ?? 'light',
+  setCurrentTheme: () => {},
+};
+
+export const ThemeContext = createContext<ThemeContextProps>(defaultState);
 
 export const useTheme = () => useContext(ThemeContext);
